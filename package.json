@@ -1,0 +1,49 @@
+{
+  "name": "asm.ts",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "A AssemblyScript-like (TypeScript-like, JavaScript-like) language that compiles to native code using ts.asm",
+  "keywords": [
+    "assemblyscript",
+    "native",
+    "x86",
+    "x64",
+    "x86_64",
+    "TypeScript",
+    "JavaScript"
+  ],
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "scripts": {
+    "build": "ts-node --esm build.ts",
+    "prerun:antlr4ts:parser": "rm -rf ./src/parser",
+    "run:antlr4ts:parser": "antlr4ts -visitor -lib ./grammar/.antlr ./grammar/TSASMParser.g4 -o ./src/parser",
+    "run:antlr4ts:lexer": "antlr4ts -visitor -lib ./grammar/.antlr ./grammar/TSASMLexer.g4 -o ./src/lexer",
+    "test": "ts-node --esm poc.ts",
+    "test-as": "ts-node --esm poc-as.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyr0/asm.ts.git"
+  },
+  "author": "Aron Homberg <info@aron-homberg.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyr0/asm.ts/issues"
+  },
+  "dependencies": {
+    "assemblyscript": "^0.19.23"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "ts-node": "^10.7.0",
+    "antlr4ts": "^0.5.0-alpha.4",
+    "esbuild": "^0.14.38",
+    "jest": "^27.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.3",
+    "antlr4ts-cli": "^0.5.0-alpha.4"
+  }
+}

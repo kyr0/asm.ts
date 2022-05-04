@@ -1,0 +1,15 @@
+src/
+test/
+node_modules/
+.idea/
+.vscode/
+.gitignore
+.editorconfig
+.prettierrc
+jest.config.cjs
+tsconfig.json
+.github
+yarn.lock
+build.ts
+genIndex.ts
+cleanBuild.ts
